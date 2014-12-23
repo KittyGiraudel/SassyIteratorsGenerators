@@ -5,15 +5,24 @@
 // @see http://sassmeister.com/gist/d94049a3d516e31a8dad Demo
 ////
 
+/// Identity function
+/// @param {Value} $value
+/// @return {Value} $value
+@function identity($value) {
+  @return $value;
+}
+
 /// Iterator initialization
 /// @param {List | Map | String} $collection
+/// @param {Function} $yield ('identity') - mapping function for yielded value
 /// @return {Iterator}
-@function iterator($collection) {
+@function iterator($collection, $yield: 'identity') {
   @return (
     'collection': $collection,
     'position': 0,
     'value': null,
-    'done': false
+    'done': false,
+    'yield': $yield
   );
 }
 
@@ -38,6 +47,7 @@
 @function iterator-next($iterator) {
   $position: map-get($iterator, 'position') + 1;
   $collection: map-get($iterator, 'collection');
+  $yield: map-get($iterator, 'yield');
   $value: map-get($iterator, 'value');
   $done: map-get($iterator, 'done');
 
@@ -53,6 +63,8 @@
   } @else {
     @warn "Unsupported collection type: #{type-of($collection)}.";
   }
+  
+  $value: if(not $done, call($yield, $value), $value);
 
   @return map-merge($iterator, (
     'done': $done,
