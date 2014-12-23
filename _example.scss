@@ -1,0 +1,29 @@
+// Iterator tester
+@mixin iterator-test($collection) {
+  // Initialize a new iterator
+  $iterator: iterator($collection);
+
+  // Iterate over it, while it's not done
+  @while iterator-valid($iterator) {
+    // Inspect the (cleaned) iterator
+    content: inspect(iterator-api($iterator));
+
+    // Get next value from iterator
+    $iterator: iterator-next($iterator);
+  }
+
+  // Inspect it one last time to see it finished
+  content: inspect(iterator-api($iterator));
+}
+
+.test-string {
+  @include iterator-test("Hello!");
+}
+
+.test-list {
+  @include iterator-test('a' 'b' 'c' 'd');
+}
+
+.test-map {
+  @include iterator-test(('a': 1, 'b': 2));
+}

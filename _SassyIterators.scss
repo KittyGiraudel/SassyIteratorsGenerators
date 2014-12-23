@@ -1,0 +1,72 @@
+////
+// Iterators in Sass, just for the heck of it.
+// @access public
+// @see https://github.com/HugoGiraudel/SassyIterators
+// @see http://sassmeister.com/gist/d94049a3d516e31a8dad Demo
+////
+
+/// Iterator initialization
+/// @param {List | Map | String} $collection
+/// @return {Iterator}
+@function iterator($collection) {
+  @return (
+    'collection': $collection,
+    'position': 0,
+    'value': null,
+    'done': false
+  );
+}
+
+/// Iterator reset
+/// @param {Iterator} $iterator
+/// @return {Iterator}
+/// @require iterator
+@function iterator-rewind($iterator) {
+  @return iterator(map-get($iterator, 'collection'));
+}
+
+/// Iterator validity checker
+/// @param {Iterator} $iterator
+/// @return {Boolean}
+@function iterator-valid($iterator) {
+  @return map-get($iterator, 'done') == false;
+}
+
+/// Iterator next
+/// @param {Iterator} $iterator
+/// @return {Iterator}
+@function iterator-next($iterator) {
+  $position: map-get($iterator, 'position') + 1;
+  $collection: map-get($iterator, 'collection');
+  $value: map-get($iterator, 'value');
+  $done: map-get($iterator, 'done');
+
+  @if type-of($collection) == 'string' {
+    $done: $position > str-length($collection);
+    $value: if($done, null, str-slice($collection, $position, $position));
+  } @else if type-of($collection) == 'list' {
+    $done: $position > length($collection);
+    $value: if($done, null, nth($collection, $position));
+  } @else if type-of($collection) == 'map' {
+    $done: $position > length($collection);
+    $value: if($done, null, nth(map-keys($collection), $position) map-get($collection, nth(map-keys($collection), $position)));
+  } @else {
+    @warn "Unsupported collection type: #{type-of($collection)}.";
+  }
+
+  @return map-merge($iterator, (
+    'done': $done,
+    'value': $value,
+    'position': $position
+  ));
+}
+
+/// Iterator API cleaner
+/// @param {Iterator} $iterator
+/// @return {Simple Iterator}
+@function iterator-api($iterator) {
+  @return (
+    'done': map-get($iterator, 'done'),
+    'value': map-get($iterator, 'value')
+  );
+}
