@@ -1,7 +1,7 @@
 // Iterator tester
-@mixin iterator-test($collection) {
+@mixin iterator-test($collection, $args...) {
   // Initialize a new iterator
-  $iterator: iterator($collection);
+  $iterator: iterator($collection, $args...);
 
   // Iterate over it, while it's not done
   @while iterator-valid($iterator) {
@@ -16,14 +16,26 @@
   content: inspect(iterator-api($iterator));
 }
 
+// String test
 .test-string {
   @include iterator-test("Hello!");
 }
 
+// List test
 .test-list {
   @include iterator-test('a' 'b' 'c' 'd');
 }
 
+// Yield test
+@function double($value) {
+  @return $value * 2;
+}
+  
+.test-yield {
+  @include iterator-test(1 2 3 4, $yield: 'double');
+}
+
+// Map test
 .test-map {
   @include iterator-test(('a': 1, 'b': 2));
 }
