@@ -17,6 +17,14 @@ $value: iterator-next($iterator);
 // (done: false, value: 'H', collection: 'Hello world!', position: 1)
 ```
 
+## Specify a yield mapping function in iterator
+
+```scss
+$iterator: iterator('abcde', $yield: 'to-upper-case');
+$value: iterator-next($iterator);
+// (done: false, value: 'A', collection: 'abcde', position: 1)
+```
+
 ## Have a clean view of the iterator
 
 ```scss
