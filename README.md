@@ -7,14 +7,14 @@ Iterators implementation in Sass. Just for the heck of it. [Demo](http://sassmei
 
 ```scss
 $iterator: iterator('Hello world!');
-// (done: false, value: null, collection: 'Hello world!', position: 0)
+// (done: false, value: null, collection: 'Hello world!', position: 0, yield: null, args: ())
 ```
 
 ## Get next value in iterator
 
 ```scss
 $value: iterator-next($iterator);
-// (done: false, value: 'H', collection: 'Hello world!', position: 1)
+// (done: false, value: 'H', collection: 'Hello world!', position: 1, yield: null, args: ())
 ```
 
 ## Have a clean view of the iterator
@@ -28,7 +28,7 @@ $iterator-api: iterator-api($iterator);
 
 ```scss
 $iterator: iterator-rewind($iterator);
-// (done: false, value: null, collection: 'Hello world!', position: 0)
+// (done: false, value: null, collection: 'Hello world!', position: 0, yield: null, args: ())
 ```
 
 ## Check if iterator is still valid
@@ -38,11 +38,21 @@ $is-valid: iterator-valid($iterator);
 // true
 ```
 
+## Specify a yield mapping function in iterator
+
+```scss
+$iterator: iterator('Hello world!', 'to-upper-case');
+// (done: false, value: null, collection: 'abc', position: 0, yield: 'to-upper-case', args: ())
+
+$value: iterator-next($iterator);
+// (done: false, value: 'A', collection: 'abc', position: 1, yield: 'to-upper-case', args: ())
+```
+
 ## Example
 
 ```scss
 .example {
-  $iterator: iterator('Hello');
+  $iterator: iterator('hello', 'to-upper-case');
 
   @while iterator-valid($iterator) {
     content: inspect(iterator-api($iterator));
@@ -59,10 +69,10 @@ Result:
 .example {
   content: ("done": false, "value": null);
   content: ("done": false, "value": "H");
-  content: ("done": false, "value": "e");
-  content: ("done": false, "value": "l");
-  content: ("done": false, "value": "l");
-  content: ("done": false, "value": "o");
+  content: ("done": false, "value": "E");
+  content: ("done": false, "value": "L");
+  content: ("done": false, "value": "L");
+  content: ("done": false, "value": "O");
   content: ("done": true, "value": null);
 }
 ```

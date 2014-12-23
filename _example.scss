@@ -1,7 +1,7 @@
 // Iterator tester
-@mixin iterator-test($collection) {
+@mixin iterator-test($collection, $mapping: null, $mapping-args...) {
   // Initialize a new iterator
-  $iterator: iterator($collection);
+  $iterator: iterator($collection, $mapping, $mapping-args...);
 
   // Iterate over it, while it's not done
   @while iterator-valid($iterator) {

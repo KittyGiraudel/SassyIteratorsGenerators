@@ -7,11 +7,15 @@
 
 /// Iterator initialization
 /// @param {List | Map | String} $collection
+/// @param {String | Null} $mapping
+/// @param {Arglist} $mapping-args - Extra arguments for `$mapping`
 /// @return {Iterator}
-@function iterator($collection) {
+@function iterator($collection, $mapping: null, $mapping-args...) {
   @return (
     'collection': $collection,
     'position': 0,
+    'mapping': $mapping,
+    'mapping-args': $mapping-args,
     'value': null,
     'done': false
   );
@@ -36,10 +40,12 @@
 /// @param {Iterator} $iterator
 /// @return {Iterator}
 @function iterator-next($iterator) {
-  $position: map-get($iterator, 'position') + 1;
   $collection: map-get($iterator, 'collection');
+  $position: map-get($iterator, 'position') + 1;
   $value: map-get($iterator, 'value');
+  $mapping: map-get($iterator, 'mapping');
   $done: map-get($iterator, 'done');
+  $mapping-args: map-get($iterator, 'mapping-args');
 
   @if type-of($collection) == 'string' {
     $done: $position > str-length($collection);
@@ -56,7 +62,7 @@
 
   @return map-merge($iterator, (
     'done': $done,
-    'value': $value,
+    'value': if($done == false and $mapping, call($mapping, $value, $mapping-args...), $value),
     'position': $position
   ));
 }
