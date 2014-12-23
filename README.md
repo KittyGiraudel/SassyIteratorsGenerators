@@ -1,7 +1,7 @@
 SassyIterators
 ==============
 
-Iterators implementation in Sass. Just for the heck of it.
+Iterators implementation in Sass. Just for the heck of it. [Demo](http://sassmeister.com/gist/d94049a3d516e31a8dad).
 
 ## Initialize an iterator
 
