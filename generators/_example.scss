@@ -1,0 +1,22 @@
+// Test
+@include generator('foo') {
+  @each $item in 1 2 3 4 5 {
+    @include yield($item * $item);
+  }
+}
+
+.test {
+  @while generator-valid('foo') {
+    content: inspect(generator-next('foo'));
+  }
+  content: inspect(generator-next('foo')); // Done
+}
+
+@include generator-rewind('foo');
+
+.test {
+  @while generator-valid('foo') {
+    content: inspect(generator-next('foo'));
+  }
+  content: inspect(generator-next('foo')); // Done
+}

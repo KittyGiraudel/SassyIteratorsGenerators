@@ -1,0 +1,83 @@
+/// Map of existing generators
+/// @access private
+$__generators__: () !global;
+
+/// Current generator stored in `generator`
+/// @access private
+$__current__: null !global;
+
+/// Initialize a new generator
+/// @access public
+/// @param {String} $name - generator's name
+/// @content - `yield` directives
+/// @require $__generators__
+/// @require $__current__
+@mixin generator($name) {
+  $__current__: $name !global;
+  $__generators__: map-merge($__generators__, ($__current__: (
+    'values': (),
+    'position': 0
+  ))) !global;
+  @content;
+  $__current__: null !global;
+}
+
+/// Yield a new value for the generator
+/// @param {*} $value
+/// @require $__generators__
+/// @require $__current__
+@mixin yield($value) {
+  @if $__current__ == null {
+    @error "You cannot yield outside of a generator.";
+  }
+
+  $current: map-get($__generators__, $__current__);
+  $current: map-merge($current, ('values': append(map-get($current, 'values'), $value)));
+  $__generators__: map-merge($__generators__, ($__current__: $current)) !global;
+}
+
+/// Return next value for generator
+/// @param {String} $name
+/// @require $__generators__
+/// @throw Unknown $generator `#{$generator}`.
+@function generator-next($name) {
+  $generator: map-get($__generators__, $name);
+
+  @if $generator == null {
+    @error "Unknown $generator `#{$generator}`.";
+  }
+
+  $position: map-get($generator, 'position') + 1;
+  $values: map-get($generator, 'values');
+  $done: $position > length($values);
+  $__generators__: map-merge($__generators__, ($name: map-merge($generator, ('position': $position)))) !global;
+
+  @return (
+    'done': $done,
+    'value': if($done, null, nth($values, $position))
+  );
+}
+
+/// Check whether an generator is still valid
+/// @param {String} $name
+/// @require $__generators__
+/// @throw Unknown $generator `#{$generator}`.
+@function generator-valid($name) {
+  $generator: map-get($__generators__, $name);
+  @if $generator == null {
+    @error "Unknown $generator `#{$generator}`.";
+  }
+  @return map-get($generator, 'position') < length(map-get($generator, 'values'));
+}
+
+/// Reset an generator
+/// @param {String} $name
+/// @require $__generators__
+/// @throw Unknown $generator `#{$generator}`.
+@mixin generator-rewind($name) {
+  $generator: map-get($__generators__, $name);
+  @if $generator == null {
+    @error "Unknown $generator `#{$generator}`.";
+  }
+  $__generators__: map-merge($__generators__, ($name: map-merge($generator, ('position': 0)))) !global;
+}
