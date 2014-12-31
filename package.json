@@ -1,0 +1,24 @@
+{
+  "title": "SassyIteratorsGenerators",
+  "name": "SassyIteratorsGenerators",
+  "version": "0.1.0",
+  "description": "Iterators and generators implementation in Sass.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HugoGiraudel/SassyIteratorsGenerators"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "iterator",
+    "iterators",
+    "generator",
+    "generators"
+  ],
+  "author": "Hugo Giraudel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HugoGiraudel/SassyIteratorsGenerators/issues"
+  },
+  "homepage": "https://github.com/HugoGiraudel/SassyIteratorsGenerators"
+}
