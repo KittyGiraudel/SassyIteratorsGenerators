@@ -1,6 +1,6 @@
 {
-  "name": "Iterators and generators implementation in Sass.",
-  "description": "A powerful logger to handle error and warning messages in Sass.",
+  "name": "SassyIteratorsGenerators",
+  "description": "Iterators and generators implementation in Sass.",
   "tags": [
     "sass",
     "scss",
