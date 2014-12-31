@@ -1,9 +1,9 @@
 ////
 //// Generators in Sass, just for the heck of it.
+//// https://github.com/HugoGiraudel/SassyIteratorsGenerators GitHub repository
+//// http://sassmeister.com/gist/a23f71cf785bf555c6ed Demo
 //// @group generators
 //// @access public
-//// @link https://github.com/HugoGiraudel/SassyIteratorsGenerators GitHub repository
-//// @link http://sassmeister.com/gist/a23f71cf785bf555c6ed Demo
 ////
 
 
@@ -48,7 +48,6 @@ $__current__: null !global;
 /// Return next value for generator
 /// @param {String} $name
 /// @require $__generators__
-/// @throw Unknown $generator `#{$generator}`.
 @function generator-next($name) {
   $generator: map-get($__generators__, $name);
 
@@ -70,7 +69,6 @@ $__current__: null !global;
 /// Check whether an generator is still valid
 /// @param {String} $name
 /// @require $__generators__
-/// @throw Unknown $generator `#{$generator}`.
 @function generator-valid($name) {
   $generator: map-get($__generators__, $name);
   @if $generator == null {
@@ -82,7 +80,6 @@ $__current__: null !global;
 /// Reset an generator
 /// @param {String} $name
 /// @require $__generators__
-/// @throw Unknown $generator `#{$generator}`.
 @mixin generator-rewind($name) {
   $generator: map-get($__generators__, $name);
   @if $generator == null {
