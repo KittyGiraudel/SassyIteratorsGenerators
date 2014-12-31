@@ -1,6 +1,8 @@
 SassyIteratorsGenerators
 ========================
 
+Read [API documentation](http://hugogiraudel.com/SassyIteratorsGenerators).
+
 ## Iterators
 
 * [Example](https://github.com/HugoGiraudel/SassyIterators/blob/master/iterators/_example.scss)
