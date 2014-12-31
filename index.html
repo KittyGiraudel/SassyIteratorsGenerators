@@ -1,0 +1,2529 @@
+<!doctype html>
+
+
+
+
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8" />
+
+<title>SassyIteratorsGenerators - v0.1.0</title>
+<link rel="stylesheet" href="assets/css/main.css" />
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width">
+<meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible">
+
+<!-- Thanks to Sass-lang.com for the icons -->
+<link href="http://sass-lang.com/favicon.ico" rel="shortcut icon">
+
+</head>
+<body>
+
+  
+  <aside class="sidebar" role="nav">
+    
+  <div class="sidebar__header">
+  <h1 class="sidebar__title">
+    
+      <a href="https://github.com/HugoGiraudel/SassyIteratorsGenerators">SassyIteratorsGenerators - v0.1.0</a>
+    
+  </h1>
+</div>
+
+<div class="sidebar__body">
+  
+  
+    <button type="button" class="btn-toggle  js-btn-toggle" data-alt="Open all">Close all</button>
+
+    
+    
+      <p class="sidebar__item  sidebar__item--heading" data-slug="generators"><a href="#generators">Generators</a></p>
+
+      
+      
+        <div>
+
+        
+        
+
+        
+        
+          <p class="sidebar__item  sidebar__item--sub-heading" data-slug="generators-function"><a href="#generators-function">functions</a></p>
+
+          
+          
+            <ul class="list-unstyled">
+            <li class="sidebar__item  sassdoc__item" data-name="generator-next" data-type="function">
+              <a href="#function-generator-next">generator-next
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="generator-valid" data-type="function">
+              <a href="#function-generator-valid">generator-valid
+              
+              
+              </a>
+            </li>
+            </ul>
+          
+        
+        
+      
+        
+
+        
+        
+
+        
+        
+          <p class="sidebar__item  sidebar__item--sub-heading" data-slug="generators-mixin"><a href="#generators-mixin">mixins</a></p>
+
+          
+          
+            <ul class="list-unstyled">
+            <li class="sidebar__item  sassdoc__item" data-name="generator" data-type="mixin">
+              <a href="#mixin-generator">generator
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="yield" data-type="mixin">
+              <a href="#mixin-yield">yield
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="generator-rewind" data-type="mixin">
+              <a href="#mixin-generator-rewind">generator-rewind
+              
+              
+              </a>
+            </li>
+            </ul>
+          
+        
+        
+      
+        
+
+        
+        
+
+        
+        
+          <p class="sidebar__item  sidebar__item--sub-heading" data-slug="generators-variable"><a href="#generators-variable">variables</a></p>
+
+          
+          
+            <ul class="list-unstyled">
+            <li class="sidebar__item  sassdoc__item" data-name="__generators__" data-type="variable">
+              <a href="#variable-__generators__">__generators__
+              <span class="sidebar__annotation  sidebar__annotation--private">private</span>
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="__current__" data-type="variable">
+              <a href="#variable-__current__">__current__
+              <span class="sidebar__annotation  sidebar__annotation--private">private</span>
+              
+              </a>
+            </li>
+            </ul>
+          
+        
+        </div>
+      
+
+    
+      <p class="sidebar__item  sidebar__item--heading" data-slug="iterators"><a href="#iterators">Iterators</a></p>
+
+      
+      
+        <div>
+
+        
+        
+
+        
+        
+          <p class="sidebar__item  sidebar__item--sub-heading" data-slug="iterators-function"><a href="#iterators-function">functions</a></p>
+
+          
+          
+            <ul class="list-unstyled">
+            <li class="sidebar__item  sassdoc__item" data-name="iterator" data-type="function">
+              <a href="#function-iterator">iterator
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="iterator-rewind" data-type="function">
+              <a href="#function-iterator-rewind">iterator-rewind
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="iterator-valid" data-type="function">
+              <a href="#function-iterator-valid">iterator-valid
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="iterator-next" data-type="function">
+              <a href="#function-iterator-next">iterator-next
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="iterator-api" data-type="function">
+              <a href="#function-iterator-api">iterator-api
+              
+              
+              </a>
+            </li>
+            </ul>
+          
+        
+        </div>
+      
+
+    
+  
+</div>
+
+
+  </aside>
+
+  
+  <article class="main" role="main">
+
+    
+    <header class="header" role="banner">
+  <div class="container">
+  
+    <div class="header__description">
+      <p>Iterators and generators implementation in Sass.</p>
+
+    </div>
+  
+
+    <div class="sassdoc__searchbar  searchbar">
+       <label for="js-search-input" class="visually-hidden">Search</label>
+       <div class="searchbar__form" id="js-search">
+         <input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search" />
+         <ul class="searchbar__suggestions" id="js-search-suggestions"></ul>
+       </div>
+     </div>
+  </div>
+</header>
+
+
+    <div class="container">
+    
+
+  
+  
+
+    
+    
+      <section class="main__section">
+        <h1 class="main__heading" id="generators">Generators</h1>
+
+        
+        
+
+          
+          
+
+          
+          
+            <section class="main__sub-section" id="generators-function">
+              <h2 class="main__heading--secondary">functions</h2>
+
+              
+              
+                <section class="main__item  item" id="function-generator-next">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#function-generator-next">generator-next</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@function generator-next($name) { 
+  $generator: map-get($__generators__, $name);
+
+  @if $generator == null {
+    @error &quot;Unknown $generator `#{$generator}`.&quot;;
+  }
+
+  $position: map-get($generator, &#39;position&#39;) + 1;
+  $values: map-get($generator, &#39;values&#39;);
+  $done: $position &gt; length($values);
+  $__generators__: map-merge($__generators__, ($name: map-merge($generator, (&#39;position&#39;: $position)))) !global;
+
+  @return (
+    &#39;done&#39;: $done,
+    &#39;value&#39;: if($done, null, nth($values, $position))
+  );
+ }"
+    data-collapsed="@function generator-next($name) { ... }"><code>@function generator-next($name) { ... }</code></pre>
+
+  
+    <a href="https://github.com/HugoGiraudel/SassyIteratorsGenerators/tree/master/sass/generators/_generators.scss#L52-L68" class="item__source-link" target="_blank">View source</a>
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Return next value for generator</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$name</code></th>
+          <td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td>
+          <td data-label="type">
+          
+            String
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Throws</h3>
+
+  <ul class="list-unstyled">
+    
+      <li><p>Unknown $generator <code>#{$generator}</code>.</p>
+</li>
+    
+      <li><p>Unknown $generator <code>#{$generator}</code>.</p>
+</li>
+    
+  </ul>
+
+
+  
+    
+    
+
+
+  
+    
+      
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
+    
+
+    
+      <li>
+        <a href="#variable-__generators__"><code>__generators__</code></a>
+        
+      </li>
+    
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="function-generator-valid">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#function-generator-valid">generator-valid</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@function generator-valid($name) { 
+  $generator: map-get($__generators__, $name);
+  @if $generator == null {
+    @error &quot;Unknown $generator `#{$generator}`.&quot;;
+  }
+  @return map-get($generator, &#39;position&#39;) &lt; length(map-get($generator, &#39;values&#39;));
+ }"
+    data-collapsed="@function generator-valid($name) { ... }"><code>@function generator-valid($name) { ... }</code></pre>
+
+  
+    <a href="https://github.com/HugoGiraudel/SassyIteratorsGenerators/tree/master/sass/generators/_generators.scss#L74-L80" class="item__source-link" target="_blank">View source</a>
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Check whether an generator is still valid</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$name</code></th>
+          <td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td>
+          <td data-label="type">
+          
+            String
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Throws</h3>
+
+  <ul class="list-unstyled">
+    
+      <li><p>Unknown $generator <code>#{$generator}</code>.</p>
+</li>
+    
+      <li><p>Unknown $generator <code>#{$generator}</code>.</p>
+</li>
+    
+  </ul>
+
+
+  
+    
+    
+
+
+  
+    
+      
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
+    
+
+    
+      <li>
+        <a href="#variable-__generators__"><code>__generators__</code></a>
+        
+      </li>
+    
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+            </section>
+          
+        
+
+          
+          
+
+          
+          
+            <section class="main__sub-section" id="generators-mixin">
+              <h2 class="main__heading--secondary">mixins</h2>
+
+              
+              
+                <section class="main__item  item" id="mixin-generator">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#mixin-generator">generator</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@mixin generator($name) { 
+  $__current__: $name !global;
+  $__generators__: map-merge($__generators__, ($__current__: (
+    &#39;values&#39;: (),
+    &#39;position&#39;: 0
+  ))) !global;
+  @content;
+  $__current__: null !global;
+ }"
+    data-collapsed="@mixin generator($name) { ... }"><code>@mixin generator($name) { ... }</code></pre>
+
+  
+    <a href="https://github.com/HugoGiraudel/SassyIteratorsGenerators/tree/master/sass/generators/_generators.scss#L24-L32" class="item__source-link" target="_blank">View source</a>
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Initialize a new generator</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$name</code></th>
+          <td data-label="desc"><p>generator&#39;s name</p>
+</td>
+          <td data-label="type">
+          
+            String
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+  
+    
+    
+
+  
+    
+    
+
+
+  
+    
+      
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
+    
+
+    
+      <li>
+        <a href="#variable-__generators__"><code>__generators__</code></a>
+        
+      </li>
+    
+  
+
+
+
+  
+    
+
+    
+      <li>
+        <a href="#variable-__current__"><code>__current__</code></a>
+        
+      </li>
+    
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="mixin-yield">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#mixin-yield">yield</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@mixin yield($value) { 
+  @if $__current__ == null {
+    @error &quot;You cannot yield outside of a generator.&quot;;
+  }
+
+  $current: map-get($__generators__, $__current__);
+  $current: map-merge($current, (&#39;values&#39;: append(map-get($current, &#39;values&#39;), $value)));
+  $__generators__: map-merge($__generators__, ($__current__: $current)) !global;
+ }"
+    data-collapsed="@mixin yield($value) { ... }"><code>@mixin yield($value) { ... }</code></pre>
+
+  
+    <a href="https://github.com/HugoGiraudel/SassyIteratorsGenerators/tree/master/sass/generators/_generators.scss#L38-L46" class="item__source-link" target="_blank">View source</a>
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Yield a new value for the generator</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$value</code></th>
+          <td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td>
+          <td data-label="type">
+          
+            Any
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Throws</h3>
+
+  <ul class="list-unstyled">
+    
+      <li><p>You cannot yield outside of a generator.</p>
+</li>
+    
+  </ul>
+
+
+  
+    
+    
+
+
+  
+    
+      
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
+    
+
+    
+      <li>
+        <a href="#variable-__generators__"><code>__generators__</code></a>
+        
+      </li>
+    
+  
+
+
+
+  
+    
+
+    
+      <li>
+        <a href="#variable-__current__"><code>__current__</code></a>
+        
+      </li>
+    
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="mixin-generator-rewind">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#mixin-generator-rewind">generator-rewind</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@mixin generator-rewind($name) { 
+  $generator: map-get($__generators__, $name);
+  @if $generator == null {
+    @error &quot;Unknown $generator `#{$generator}`.&quot;;
+  }
+  $__generators__: map-merge($__generators__, ($name: map-merge($generator, (&#39;position&#39;: 0)))) !global;
+ }"
+    data-collapsed="@mixin generator-rewind($name) { ... }"><code>@mixin generator-rewind($name) { ... }</code></pre>
+
+  
+    <a href="https://github.com/HugoGiraudel/SassyIteratorsGenerators/tree/master/sass/generators/_generators.scss#L86-L92" class="item__source-link" target="_blank">View source</a>
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Reset an generator</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$name</code></th>
+          <td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td>
+          <td data-label="type">
+          
+            String
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Throws</h3>
+
+  <ul class="list-unstyled">
+    
+      <li><p>Unknown $generator <code>#{$generator}</code>.</p>
+</li>
+    
+      <li><p>Unknown $generator <code>#{$generator}</code>.</p>
+</li>
+    
+  </ul>
+
+
+  
+    
+    
+
+
+  
+    
+      
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
+    
+
+    
+      <li>
+        <a href="#variable-__generators__"><code>__generators__</code></a>
+        
+      </li>
+    
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+            </section>
+          
+        
+
+          
+          
+
+          
+          
+            <section class="main__sub-section" id="generators-variable">
+              <h2 class="main__heading--secondary">variables</h2>
+
+              
+              
+                <section class="main__item  item" id="variable-__generators__">
+
+<h3 class="item__heading">
+  
+    <span class="item__access">[private]</span>
+  
+
+  <a class="item__name" href="#variable-__generators__">__generators__</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div class="relative  clear">
+  <pre class="item__code  language-scss"><code>$__generators__: () !global;</code></pre>
+
+  
+    <a href="https://github.com/HugoGiraudel/SassyIteratorsGenerators/tree/master/sass/generators/_generators.scss#L12-L12" class="item__source-link" target="_blank">View source</a>
+  
+</div>
+
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Map of existing generators</p>
+</div>
+
+
+  
+    
+    
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+  
+
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled  list-inline">
+    
+
+    <li><a href="#mixin-generator"><code>generator</code></a></li>
+  
+
+
+
+  
+
+    
+
+    <li><a href="#mixin-yield"><code>yield</code></a></li>
+  
+
+
+
+  
+
+    
+
+    <li><a href="#mixin-generator-rewind"><code>generator-rewind</code></a></li>
+  
+
+
+
+  
+
+    
+
+    <li><a href="#function-generator-next"><code>generator-next</code></a></li>
+  
+
+
+
+  
+
+    
+
+    <li><a href="#function-generator-valid"><code>generator-valid</code></a></li>
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="variable-__current__">
+
+<h3 class="item__heading">
+  
+    <span class="item__access">[private]</span>
+  
+
+  <a class="item__name" href="#variable-__current__">__current__</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div class="relative  clear">
+  <pre class="item__code  language-scss"><code>$__current__: null !global;</code></pre>
+
+  
+    <a href="https://github.com/HugoGiraudel/SassyIteratorsGenerators/tree/master/sass/generators/_generators.scss#L16-L16" class="item__source-link" target="_blank">View source</a>
+  
+</div>
+
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Current generator stored in <code>generator</code></p>
+</div>
+
+
+  
+    
+    
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+  
+
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled  list-inline">
+    
+
+    <li><a href="#mixin-generator"><code>generator</code></a></li>
+  
+
+
+
+  
+
+    
+
+    <li><a href="#mixin-yield"><code>yield</code></a></li>
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+            </section>
+          
+        
+
+      </section>
+    
+      <section class="main__section">
+        <h1 class="main__heading" id="iterators">Iterators</h1>
+
+        
+        
+
+          
+          
+
+          
+          
+            <section class="main__sub-section" id="iterators-function">
+              <h2 class="main__heading--secondary">functions</h2>
+
+              
+              
+                <section class="main__item  item" id="function-iterator">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#function-iterator">iterator</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@function iterator($collection, $mapping, $mapping-args...) { 
+  @return (
+    &#39;collection&#39;: $collection,
+    &#39;position&#39;: 0,
+    &#39;mapping&#39;: $mapping,
+    &#39;mapping-args&#39;: $mapping-args,
+    &#39;value&#39;: null,
+    &#39;done&#39;: false
+  );
+ }"
+    data-collapsed="@function iterator($collection, $mapping, $mapping-args...) { ... }"><code>@function iterator($collection, $mapping, $mapping-args...) { ... }</code></pre>
+
+  
+    <a href="https://github.com/HugoGiraudel/SassyIteratorsGenerators/tree/master/sass/iterators/_iterators.scss#L14-L23" class="item__source-link" target="_blank">View source</a>
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Iterator initialization</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$collection</code></th>
+          <td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td>
+          <td data-label="type">
+          
+            List, Map, String
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$mapping</code></th>
+          <td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td>
+          <td data-label="type">
+          
+            String, Null
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$mapping-args</code></th>
+          <td data-label="desc"><p>Extra arguments for <code>$mapping</code></p>
+</td>
+          <td data-label="type">
+          
+            Arglist
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Returns</h3>
+
+  <p class="sassdoc__item-description">
+  
+    Iterator
+  
+  </p>
+
+
+  
+    
+    
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+
+
+  
+
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled  list-inline">
+    
+
+    <li><a href="#function-iterator-rewind"><code>iterator-rewind</code></a></li>
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="function-iterator-rewind">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#function-iterator-rewind">iterator-rewind</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@function iterator-rewind($iterator) { 
+  @return iterator(map-get($iterator, &#39;collection&#39;));
+ }"
+    data-collapsed="@function iterator-rewind($iterator) { ... }"><code>@function iterator-rewind($iterator) { ... }</code></pre>
+
+  
+    <a href="https://github.com/HugoGiraudel/SassyIteratorsGenerators/tree/master/sass/iterators/_iterators.scss#L29-L31" class="item__source-link" target="_blank">View source</a>
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Iterator reset</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$iterator</code></th>
+          <td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td>
+          <td data-label="type">
+          
+            Iterator
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Returns</h3>
+
+  <p class="sassdoc__item-description">
+  
+    Iterator
+  
+  </p>
+
+
+  
+    
+    
+
+  
+    
+    
+
+  
+    
+    
+
+
+  
+    
+      
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
+    
+
+    
+      <li>
+        <a href="#function-iterator"><code>iterator</code></a>
+        
+      </li>
+    
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="function-iterator-valid">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#function-iterator-valid">iterator-valid</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@function iterator-valid($iterator) { 
+  @return map-get($iterator, &#39;done&#39;) == false;
+ }"
+    data-collapsed="@function iterator-valid($iterator) { ... }"><code>@function iterator-valid($iterator) { ... }</code></pre>
+
+  
+    <a href="https://github.com/HugoGiraudel/SassyIteratorsGenerators/tree/master/sass/iterators/_iterators.scss#L36-L38" class="item__source-link" target="_blank">View source</a>
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Iterator validity checker</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$iterator</code></th>
+          <td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td>
+          <td data-label="type">
+          
+            Iterator
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Returns</h3>
+
+  <p class="sassdoc__item-description">
+  
+    Boolean
+  
+  </p>
+
+
+  
+    
+    
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="function-iterator-next">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#function-iterator-next">iterator-next</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@function iterator-next($iterator) { 
+  $collection: map-get($iterator, &#39;collection&#39;);
+  $position: map-get($iterator, &#39;position&#39;) + 1;
+  $value: map-get($iterator, &#39;value&#39;);
+  $mapping: map-get($iterator, &#39;mapping&#39;);
+  $done: map-get($iterator, &#39;done&#39;);
+  $mapping-args: map-get($iterator, &#39;mapping-args&#39;);
+
+  @if type-of($collection) == &#39;string&#39; {
+    $done: $position &gt; str-length($collection);
+    $value: if($done, null, str-slice($collection, $position, $position));
+  } @else if type-of($collection) == &#39;list&#39; {
+    $done: $position &gt; length($collection);
+    $value: if($done, null, nth($collection, $position));
+  } @else if type-of($collection) == &#39;map&#39; {
+    $done: $position &gt; length($collection);
+    $value: if($done, null, nth(map-keys($collection), $position) map-get($collection, nth(map-keys($collection), $position)));
+  } @else {
+    @warn &quot;Unsupported collection type: #{type-of($collection)}.&quot;;
+  }
+
+  @return map-merge($iterator, (
+    &#39;done&#39;: $done,
+    &#39;value&#39;: if($done == false and $mapping, call($mapping, $value, $mapping-args...), $value),
+    &#39;position&#39;: $position
+  ));
+ }"
+    data-collapsed="@function iterator-next($iterator) { ... }"><code>@function iterator-next($iterator) { ... }</code></pre>
+
+  
+    <a href="https://github.com/HugoGiraudel/SassyIteratorsGenerators/tree/master/sass/iterators/_iterators.scss#L43-L69" class="item__source-link" target="_blank">View source</a>
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Iterator next</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$iterator</code></th>
+          <td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td>
+          <td data-label="type">
+          
+            Iterator
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Returns</h3>
+
+  <p class="sassdoc__item-description">
+  
+    Iterator
+  
+  </p>
+
+
+  
+    
+    
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="function-iterator-api">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#function-iterator-api">iterator-api</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@function iterator-api($iterator) { 
+  @return (
+    &#39;done&#39;: map-get($iterator, &#39;done&#39;),
+    &#39;value&#39;: map-get($iterator, &#39;value&#39;)
+  );
+ }"
+    data-collapsed="@function iterator-api($iterator) { ... }"><code>@function iterator-api($iterator) { ... }</code></pre>
+
+  
+    <a href="https://github.com/HugoGiraudel/SassyIteratorsGenerators/tree/master/sass/iterators/_iterators.scss#L74-L79" class="item__source-link" target="_blank">View source</a>
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Iterator API cleaner</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$iterator</code></th>
+          <td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td>
+          <td data-label="type">
+          
+            Iterator
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Returns</h3>
+
+  <p class="sassdoc__item-description">
+  
+    Simple iterator
+  
+  </p>
+
+
+  
+    
+    
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+            </section>
+          
+        
+
+      </section>
+    
+
+  
+
+
+    </div>
+
+    
+    
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+        <div class="footer__project-info  project-info">
+          <!-- Name and URL -->
+          
+            <a class="project-info__name" href="https://github.com/HugoGiraudel/SassyIteratorsGenerators">SassyIteratorsGenerators</a>
+          
+
+          <!-- Version -->
+          <span class="project-info__version"> - v0.1.0</span>
+
+          <!-- License -->
+          
+          <span class="project-info__license">, under
+            
+              MIT
+            
+            </span>
+          
+        </div>
+      
+
+      
+        <span class="footer__watermark">Built with <a href="https://github.com/SassDoc/sassdoc">SassDoc</a>.</span>
+      
+    </div>
+  </footer>
+
+
+  </article>
+
+
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="assets/js/main.min.js"></script>
+
+</body>
+</html>
