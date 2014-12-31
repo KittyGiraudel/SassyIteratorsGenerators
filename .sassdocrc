@@ -1,0 +1,12 @@
+basePath: "https://github.com/HugoGiraudel/SassyIteratorsGenerators/tree/master/sass"
+display:
+    access: ["public", "private"]
+    alias: false
+    watermark: true
+
+package: "./package.json"
+theme: "default"
+groups:
+    undefined: "General"
+    iterators: "Iterators"
+    generators: "Generators"
