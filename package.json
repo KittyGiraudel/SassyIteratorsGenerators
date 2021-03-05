@@ -5,7 +5,7 @@
   "description": "Iterators and generators implementation in Sass.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HugoGiraudel/SassyIteratorsGenerators"
+    "url": "https://github.com/KittyGiraudel/SassyIteratorsGenerators"
   },
   "keywords": [
     "sass",
@@ -15,10 +15,10 @@
     "generator",
     "generators"
   ],
-  "author": "Hugo Giraudel",
+  "author": "Kitty Giraudel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/HugoGiraudel/SassyIteratorsGenerators/issues"
+    "url": "https://github.com/KittyGiraudel/SassyIteratorsGenerators/issues"
   },
-  "homepage": "https://github.com/HugoGiraudel/SassyIteratorsGenerators"
+  "homepage": "https://github.com/KittyGiraudel/SassyIteratorsGenerators"
 }
