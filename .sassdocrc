@@ -1,4 +1,4 @@
-basePath: "https://github.com/HugoGiraudel/SassyIteratorsGenerators/tree/master/sass"
+basePath: "https://github.com/KittyGiraudel/SassyIteratorsGenerators/tree/master/sass"
 display:
     access: ["public", "private"]
     alias: false
