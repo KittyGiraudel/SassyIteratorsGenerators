@@ -1,7 +1,7 @@
 SassyIteratorsGenerators
 ========================
 
-Read [API documentation](https://kittygiraudel.com/SassyIteratorsGenerators).
+Read [API documentation](https://kittygiraudel.github.io/SassyIteratorsGenerators/).
 
 ## Iterators
 
