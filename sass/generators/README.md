@@ -1,7 +1,7 @@
 Generators
 ==========
 
-Generators implementation in Sass. Just for the heck of it. [Demo](http://sassmeister.com/gist/a23f71cf785bf555c6ed).
+Generators implementation in Sass. Just for the heck of it. [Demo](https://gist.github.com/KittyGiraudel/a23f71cf785bf555c6ed).
 
 ## Initialize a generator
 
